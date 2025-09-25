@@ -1,0 +1,82 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+
+
+ <div class="wrap">
+   <header>
+     <div class="logo">AP</div>
+     <div>
+       <h1>Academia Promocional</h1>
+       <p class="lead">Cursos rápidos com estética medieval — compra única ou assinatura mensal.</p>
+     </div>
+     <div style="margin-left:auto;text-align:right">
+       <div class="badge" id="statusBadge">Visitante</div>
+       <div style="font-size:12px;color:#7a5a4a">Assine e desbloqueie tudo</div>
+     </div>
+   </header>
+
+
+   <div class="grid">
+     <main>
+
+
+       <section id="coursesList">
+
+
+       </section>
+
+
+       <section style="margin-top:8px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fffaf0,#fff2de);border:1px dashed rgba(80,20,10,0.04)">
+         <h3 style="font-family:'Cinzel',serif">Como funciona</h3>
+         <p style="color:#5a3a2a">Este protótipo simula compra e assinatura sem integração de pagamento real. Os botões vão armazenar localmente sua compra/assinatura no navegador (localStorage). Para produção, substitua o fluxo por Stripe / PayPal / PagSeguro.</p>
+       </section>
+     </main>
+
+
+     <aside class="panel">
+       <h3 style="font-family:'Cinzel',serif">Plano rápido</h3>
+       <p class="meta">Assinatura mensal — acesso a todos os cursos com atualizações.</p>
+       <div style="margin:12px 0">
+         <div style="font-size:20px;font-weight:800;color:#6a2a06">R$ 29,90 <span style="font-size:12px;font-weight:600;color:#7a4a3a">/mês</span></div>
+       </div>
+       <button class="cta-btn" id="subscribeBtn">Assinar agora</button>
+       <div style="margin-top:10px">
+         <button class="ghost" id="manageSubs">Gerenciar assinatura</button>
+       </div>
+       <hr style="margin:14px 0;border:none;border-top:1px solid rgba(80,20,10,0.04)">
+       <h4 style="font-family:'Cinzel',serif">Carrinho</h4>
+       <div id="cartSummary" style="margin-top:8px;color:#5a3a2a">Nenhuma compra adicionada.</div>
+     </aside>
+   </div>
+
+
+   <footer>
+     © <span id="year"></span> Academia Promocional — Estética medieval e cores vibrantes. Protótipo apenas.
+   </footer>
+ </div>
+
+
+ <div id="modal" style="display:none" aria-hidden="true">
+   <div class="modal-backdrop" role="dialog" aria-modal="true">
+     <div class="modal" role="document">
+       <button id="closeModal" style="float:right;background:transparent;border:0;font-weight:700;cursor:pointer">✕</button>
+       <h3>Finalizar compra</h3>
+       <p class="meta">Complete os dados abaixo para simular a compra do curso.</p>
+       <div class="field"><label>Curso</label><div id="modalCourseTitle" style="font-weight:700;color:#3b1100"></div></div>
+       <div class="field"><label>Nome</label><input type="text" id="buyerName" placeholder="Seu nome"></div>
+       <div class="field"><label>Email</label><input type="email" id="buyerEmail" placeholder="seu@exemplo.com"></div>
+       <div class="field"><label>Pagamento</label>
+         <select id="paymentMethod">
+           <option>Cartão de crédito (simulação)</option>
+           <option>Pix (simulação)</option>
+         </select>
+       </div>
+       <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px">
+         <button class="ghost" id="cancelPay">Cancelar</button>
+         <button class="cta-btn" id="confirmPay">Pagar agora</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
