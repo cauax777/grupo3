@@ -1,82 +1,68 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Filmes — Marvel, DC e Transformers</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🎬 Catálogo de Filmes</h1>
+    <p>Filmes incríveis: Vingadores, Transformers e heróis da DC!</p>
+  </header>
 
+  <!-- 🔹 Formulário agora vem no topo -->
+  <section class="formulario">
+    <h2>Formulário de Login / Verificação</h2>
+    <form id="formVerificacao" novalidate>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" placeholder="seuemail@exemplo.com" required />
+      <span id="emailErro" class="erro">Digite um e-mail válido.</span>
 
- <div class="wrap">
-   <header>
-     <div class="logo">AP</div>
-     <div>
-       <h1>Academia Promocional</h1>
-       <p class="lead">Cursos rápidos com estética medieval — compra única ou assinatura mensal.</p>
-     </div>
-     <div style="margin-left:auto;text-align:right">
-       <div class="badge" id="statusBadge">Visitante</div>
-       <div style="font-size:12px;color:#7a5a4a">Assine e desbloqueie tudo</div>
-     </div>
-   </header>
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" placeholder="11987654321" required />
+      <span id="telefoneErro" class="erro">Digite um número válido (somente dígitos).</span>
 
+      <button type="submit">Entrar</button>
+    </form>
+    <p id="mensagemSucesso" class="sucesso"></p>
+  </section>
 
-   <div class="grid">
-     <main>
+  <main>
+    <section class="filmes">
+      <h2>Filmes em Destaque</h2>
 
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg" alt="Vingadores: Ultimato">
+        <h3>Vingadores: Ultimato</h3>
+        <p>Os heróis se unem para derrotar Thanos e restaurar o universo.</p>
+      </div>
 
-       <section id="coursesList">
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/6/66/Transformers07.jpg" alt="Transformers">
+        <h3>Transformers</h3>
+        <p>Robôs alienígenas travam uma batalha épica pela Terra.</p>
+      </div>
 
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/8/8a/Dark_Knight.jpg" alt="Batman: O Cavaleiro das Trevas">
+        <h3>Batman: O Cavaleiro das Trevas</h3>
+        <p>O Coringa desafia o Batman e causa o caos em Gotham.</p>
+      </div>
 
-       </section>
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/e/ed/Wonder_Woman_%282017_film%29.jpg" alt="Mulher-Maravilha">
+        <h3>Mulher-Maravilha</h3>
+        <p>Diana luta pela paz durante a Primeira Guerra Mundial.</p>
+      </div>
+    </section>
+  </main>
 
+  <footer>
+    <p>Direitos Reservados</p>
+  </footer>
 
-       <section style="margin-top:8px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fffaf0,#fff2de);border:1px dashed rgba(80,20,10,0.04)">
-         <h3 style="font-family:'Cinzel',serif">Como funciona</h3>
-         <p style="color:#5a3a2a">Este protótipo simula compra e assinatura sem integração de pagamento real. Os botões vão armazenar localmente sua compra/assinatura no navegador (localStorage). Para produção, substitua o fluxo por Stripe / PayPal / PagSeguro.</p>
-       </section>
-     </main>
-
-
-     <aside class="panel">
-       <h3 style="font-family:'Cinzel',serif">Plano rápido</h3>
-       <p class="meta">Assinatura mensal — acesso a todos os cursos com atualizações.</p>
-       <div style="margin:12px 0">
-         <div style="font-size:20px;font-weight:800;color:#6a2a06">R$ 29,90 <span style="font-size:12px;font-weight:600;color:#7a4a3a">/mês</span></div>
-       </div>
-       <button class="cta-btn" id="subscribeBtn">Assinar agora</button>
-       <div style="margin-top:10px">
-         <button class="ghost" id="manageSubs">Gerenciar assinatura</button>
-       </div>
-       <hr style="margin:14px 0;border:none;border-top:1px solid rgba(80,20,10,0.04)">
-       <h4 style="font-family:'Cinzel',serif">Carrinho</h4>
-       <div id="cartSummary" style="margin-top:8px;color:#5a3a2a">Nenhuma compra adicionada.</div>
-     </aside>
-   </div>
-
-
-   <footer>
-     © <span id="year"></span> Academia Promocional — Estética medieval e cores vibrantes. Protótipo apenas.
-   </footer>
- </div>
-
-
- <div id="modal" style="display:none" aria-hidden="true">
-   <div class="modal-backdrop" role="dialog" aria-modal="true">
-     <div class="modal" role="document">
-       <button id="closeModal" style="float:right;background:transparent;border:0;font-weight:700;cursor:pointer">✕</button>
-       <h3>Finalizar compra</h3>
-       <p class="meta">Complete os dados abaixo para simular a compra do curso.</p>
-       <div class="field"><label>Curso</label><div id="modalCourseTitle" style="font-weight:700;color:#3b1100"></div></div>
-       <div class="field"><label>Nome</label><input type="text" id="buyerName" placeholder="Seu nome"></div>
-       <div class="field"><label>Email</label><input type="email" id="buyerEmail" placeholder="seu@exemplo.com"></div>
-       <div class="field"><label>Pagamento</label>
-         <select id="paymentMethod">
-           <option>Cartão de crédito (simulação)</option>
-           <option>Pix (simulação)</option>
-         </select>
-       </div>
-       <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px">
-         <button class="ghost" id="cancelPay">Cancelar</button>
-         <button class="cta-btn" id="confirmPay">Pagar agora</button>
-       </div>
-     </div>
-   </div>
- </div>
-
+  <script src="script.js"></script>
+</body>
+</html>
